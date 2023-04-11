@@ -42,37 +42,25 @@
 				</div>
 				<div class="todos">
 					<ul class="todo-lists">
-						<li>
+						<!-- <li class="sortable">
 							<input type="checkbox"
 								class="checkbox">
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing !</span>
-							<img src="images/icon-cross.svg"
-								alt="">
-						</li>
-						<li>
-							<input type="checkbox"
-								class="checkbox">
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing !</span>
-						</li>
-						<li>
-							<input type="checkbox"
-								class="checkbox">
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing!</span>
-						</li>
-						<li>
-							<input type="checkbox"
-								class="checkbox">
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing !</span>
-						</li>
+							<span class="completed">Lorem ipsum dolor sit amet consectetur adipisicing !</span>
+							<img class="remove"
+								src="images/icon-cross.svg"
+								alt="remove">
+						</li> -->
 					</ul>
 					<div class="actions">
-						<span>5 items left</span>
+						<span id="itemCount"></span>
 						<div>
-							<button class="btn">All</button>
-							<button class="btn active">Active</button>
-							<button class="btn">Complete</button>
+							<button id="allItems"
+								class="">All</button>
+							<button id="activeItems">Active</button>
+							<button id="completedItems"
+								class="">Complete</button>
 						</div>
-						<button>Clear Completed</button>
+						<button id="clearCompletedItems">Clear Completed</button>
 					</div>
 				</div>
 
