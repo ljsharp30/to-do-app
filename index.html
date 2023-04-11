@@ -13,39 +13,88 @@
 
 		<title>Frontend Mentor | Todo app</title>
 
-		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-		<style>
-			.attribution {
-				font-size: 11px;
-				text-align: center;
-			}
-
-			.attribution a {
-				color: hsl(228, 45%, 44%);
-			}
-
-		</style>
+		<link rel="stylesheet"
+			href="style.css">
 	</head>
 
 	<body>
+		<section class="container">
+			<!-- Background Image -->
+			<div class="bg-image"></div>
 
-		Todo
+			<!-- Card List -->
+			<div class="card-todo">
 
-		<!-- Add dynamic number --> items left
+				<!-- Header -->
+				<div class="header">
+					<h3 class="title">ToDo</h3>
+					<img id="iconTheme"
+						src="/images/icon-moon.svg"
+						alt="icon moon">
+				</div>
 
+				<!-- Input -->
+				<div class="list-input">
+					<input type="checkbox"
+						class="checkbox">
+					<input type="text"
+						class="text-input">
+				</div>
+				<div class="todos">
+					<ul class="todo-lists">
+						<li>
+							<input type="checkbox"
+								class="checkbox">
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing !</span>
+							<img src="images/icon-cross.svg"
+								alt="">
+						</li>
+						<li>
+							<input type="checkbox"
+								class="checkbox">
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing !</span>
+						</li>
+						<li>
+							<input type="checkbox"
+								class="checkbox">
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing!</span>
+						</li>
+						<li>
+							<input type="checkbox"
+								class="checkbox">
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing !</span>
+						</li>
+					</ul>
+					<div class="actions">
+						<span>5 items left</span>
+						<div>
+							<button class="btn">All</button>
+							<button class="btn active">Active</button>
+							<button class="btn">Complete</button>
+						</div>
+						<button>Clear Completed</button>
+					</div>
+				</div>
+
+				<div class="drag-tip">
+					<span>Drag and drop to reorder list</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Todo
 		All
 		Active
 		Completed
-
 		Clear Completed
-
-		Drag and drop to reorder list
-
+		Drag and drop to reorder list -->
 		<div class="attribution">
 			Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
 				target="_blank">Frontend Mentor</a>.
 			Coded by <a href="#">Leslie Okyere</a>.
 		</div>
+
+		<script src="script.js"></script>
 	</body>
 
 </html>
