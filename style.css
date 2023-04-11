@@ -12,6 +12,11 @@ body {
 	background-color: #f3f4f6;
 }
 
+.dark-mode {
+	background-color: hsl(231deg 24% 11%);
+	color: white;
+}
+
 .attribution {
 	font-size: 11px;
 	text-align: center;
@@ -55,6 +60,10 @@ body {
 	justify-content: space-between;
 }
 
+#iconTheme {
+	cursor: pointer;
+}
+
 .title {
 	font-size: 2rem;
 	font-weight: 700;
@@ -66,7 +75,7 @@ body {
 .list-input {
 	margin-top: 4rem;
 	width: 100%;
-	padding: 1rem;
+	padding: .5rem 1.3rem;
 	background-color: white;
 	border-radius:.3rem;
 	display: flex;
@@ -80,6 +89,8 @@ body {
 	outline: none;
 	color: hsl(228, 45%, 44%);
 	font-size: 1.2rem;
+	width: 100%;
+	padding: .5rem 0;
 }
 
 .checkbox{
@@ -94,12 +105,19 @@ body {
   border-style: solid;
 		border-radius: 50%;
   border-image: linear-gradient(to right, darkblue, darkorchid) 1; */
+		background: linear-gradient(white, white) padding-box,
+              linear-gradient(140deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
 	cursor: pointer;
 	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-	background: linear-gradient(white, white) padding-box,
-              linear-gradient(140deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
   border-radius: 50em;
   border: 1px solid transparent;
+}
+
+.checkbox::before:hover {
+	background: linear-gradient(white, white) padding-box,
+              linear-gradient(140deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+	border-radius: 50em;
+	border: 1px solid transparent;
 }
 
 .checkbox:checked{
@@ -161,6 +179,14 @@ body {
 }
 
 .todo-lists li img {
+	display: none;
+}
+
+.todo-lists li:hover > img {
+	display: block;
+}
+
+.todo-lists li img {
 	position: absolute;
 	top: 50%;
  right: 3%;
@@ -205,8 +231,8 @@ body {
 	color: hsl(228, 45%, 44%);
 }
 
-.actions div button .active {
-	color: green;
+.actions div .active {
+	color: hsl(220, 98%, 61%);
 }
 
 .drag-tip {
