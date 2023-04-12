@@ -34,13 +34,17 @@
 				</div>
 
 				<!-- Input -->
-				<div class="list-input">
+				<div class="	list-input">
 					<input type="checkbox"
 						class="checkbox">
 					<input type="text"
+						autofocus
 						class="text-input">
 				</div>
-				<div class="todos">
+
+				<!-- Todo lists -->
+				<div id="todoLists"
+					class="todos">
 					<ul class="todo-lists">
 						<!-- <li class="sortable">
 							<input type="checkbox"
@@ -51,16 +55,22 @@
 								alt="remove">
 						</li> -->
 					</ul>
-					<div class="actions">
+					<div class="desktop actions">
 						<span id="itemCount"></span>
-						<div>
-							<button id="allItems"
-								class="">All</button>
+						<div id="desktopButtons">
+							<button id="allItems">All</button>
 							<button id="activeItems">Active</button>
-							<button id="completedItems"
-								class="">Complete</button>
+							<button id="completedItems">Complete</button>
 						</div>
 						<button id="clearCompletedItems">Clear Completed</button>
+					</div>
+				</div>
+
+				<div class="mobile actions">
+					<div>
+						<button id="mobileAllItems">All</button>
+						<button id="mobileActiveItems">Active</button>
+						<button id="mobileCompletedItems">Complete</button>
 					</div>
 				</div>
 
