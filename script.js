@@ -5,13 +5,24 @@ let isDark = false;
 const btnAllItems = document.querySelector( "#allItems" );
 const btnActiveItems = document.querySelector( "#activeItems" );
 const btnCompletedItems = document.querySelector( "#completedItems" );
+
+const btnMobileAllItems = document.querySelector( "#mobileAllItems" );
+const btnMobileActiveItems = document.querySelector( "#mobileActiveItems" );
+const btnMobileCompletedItems = document.querySelector( "#mobileCompletedItems" );
+
 const btnClearCompletedItems = document.querySelector( "#clearCompletedItems" );
 const iconTheme = document.querySelector( "#iconTheme" );
 
 const toggleMode = () =>
 {
 	isDark = !isDark;
-	document.body.classList.toggle( "dark-mode" );
+	document.body.classList.toggle( "dark" );
+	document.querySelector( "#todoLists" ).classList.toggle( "dark" );
+	document.querySelector( ".mobile" ).classList.toggle( "dark" );
+	document.querySelectorAll( "input" ).forEach( ( inp, i ) =>
+	{
+		inp.classList.toggle( "dark" );
+	} );
 	iconTheme.setAttribute( "src", isDark ? "/images/icon-sun.svg" : "/images/icon-moon.svg" );
 	iconTheme.setAttribute( "alt", isDark ? "icon moon" : "icon sun" );
 	document.querySelector( ".bg-image" ).style.backgroundImage = `url(${ isDark ? 'images/bg-desktop-dark.jpg' : 'images/bg-desktop-light.jpg' })`;
@@ -24,6 +35,11 @@ const onAllItems = () =>
 	btnAllItems.classList.add( "active" );
 	btnActiveItems.classList.remove( "active" );
 	btnCompletedItems.classList.remove( "active" );
+
+	btnMobileAllItems.classList.add( "active" );
+	btnMobileActiveItems.classList.remove( "active" );
+	btnMobileCompletedItems.classList.remove( "active" );
+
 	document.querySelector( ".todo-lists" ).innerHTML = "";
 	todoItems.forEach( ( item, index ) =>
 	{
@@ -37,6 +53,11 @@ const onActiveItems = () =>
 	btnAllItems.classList.remove( "active" );
 	btnActiveItems.classList.add( "active" );
 	btnCompletedItems.classList.remove( "active" );
+
+	btnMobileAllItems.classList.remove( "active" );
+	btnMobileActiveItems.classList.add( "active" );
+	btnMobileCompletedItems.classList.remove( "active" );
+
 	const activeItems = todoItems.filter( ( item, index ) => !item.completed );
 	console.log( activeItems );
 	document.querySelector( ".todo-lists" ).innerHTML = "";
@@ -53,6 +74,11 @@ const onCompletedItems = () =>
 	btnAllItems.classList.remove( "active" );
 	btnActiveItems.classList.remove( "active" );
 	btnCompletedItems.classList.add( "active" );
+
+	btnMobileAllItems.classList.remove( "active" );
+	btnMobileActiveItems.classList.remove( "active" );
+	btnMobileCompletedItems.classList.add( "active" );
+
 	const completedItems = todoItems.filter( ( item, index ) => item.completed );
 	console.log( completedItems );
 	document.querySelector( ".todo-lists" ).innerHTML = "";
@@ -69,6 +95,11 @@ const onClearCompletedItems = () =>
 	btnAllItems.classList.add( "active" );
 	btnActiveItems.classList.remove( "active" );
 	btnCompletedItems.classList.remove( "active" );
+
+	btnMobileAllItems.classList.add( "active" );
+	btnMobileActiveItems.classList.remove( "active" );
+	btnMobileCompletedItems.classList.remove( "active" );
+
 	todoItems = [];
 	document.querySelector( ".todo-lists" ).innerHTML = "";
 	onItemCountChange();
@@ -99,6 +130,12 @@ const init = () =>
 	btnAllItems.addEventListener( "click", onAllItems );
 	btnActiveItems.addEventListener( "click", onActiveItems );
 	btnCompletedItems.addEventListener( "click", onCompletedItems );
+
+	btnMobileAllItems.classList.add( "active" );
+	btnMobileAllItems.addEventListener( "click", onAllItems );
+	btnMobileActiveItems.addEventListener( "click", onActiveItems );
+	btnMobileCompletedItems.addEventListener( "click", onCompletedItems );
+
 	btnClearCompletedItems.addEventListener( "click", onClearCompletedItems );
 
 	iconTheme.addEventListener( "click", toggleMode );
