@@ -88,6 +88,7 @@ const onCompletedItems = () =>
 		createElementItem( item.id, item.text, item.completed );
 	} );
 };
+
 const onClearCompletedItems = () =>
 {
 	console.log( "onClearCompletedItems" );
@@ -100,8 +101,16 @@ const onClearCompletedItems = () =>
 	btnMobileActiveItems.classList.remove( "active" );
 	btnMobileCompletedItems.classList.remove( "active" );
 
-	todoItems = [];
+	const uncompletedItems = todoItems.filter( ( item, index ) => !item.completed );
+	todoItems = uncompletedItems;
+
 	document.querySelector( ".todo-lists" ).innerHTML = "";
+
+	uncompletedItems.forEach( ( item, index ) =>
+	{
+		createElementItem( item.id, item.text, item.completed );
+	} );
+
 	onItemCountChange();
 };
 
