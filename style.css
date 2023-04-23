@@ -235,6 +235,10 @@ border-bottom: 1px solid hsl(231deg 16% 26%);
 	border-bottom: none;
 }
 
+.sortable .item .dragging :where(input, span, img) {
+	opacity: 0;
+}
+
 .actions {
 	width: 100%;
 	display: flex;
