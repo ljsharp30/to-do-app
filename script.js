@@ -89,6 +89,37 @@ const onCompletedItems = () =>
 	} );
 };
 
+const initDragAndDrop = () =>
+{
+	const todoLists = document.querySelector( ".todo-lists" );
+	// const items = document.querySelectorAll( ".item" );
+
+	// items.forEach( ( item, index ) =>
+	// {
+	// 	item.addEventListener( "dragstart", () =>
+	// 	{
+	// 		setTimeout( () => item.classList.add( ".dragging" ), 0 );
+	// 	} );
+
+	// 	item.addEventListener( "dragend", () => item.classList.remove( ".dragging" ) );
+
+	// } );
+
+	todoLists.addEventListener( "dragover", ( e ) =>
+	{
+		e.preventDefault();
+		const draggingItem = todoLists.querySelector( ".dragging" );
+		const siblings = [ ...todoLists.querySelectorAll( ".item:not(.dragging)" ) ];
+
+		let nextSibling = siblings.find( sibling =>
+		{
+			return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
+		} );
+
+		todoLists.insertBefore( draggingItem, nextSibling );
+	} );
+};
+
 const onClearCompletedItems = () =>
 {
 	console.log( "onClearCompletedItems" );
@@ -148,6 +179,8 @@ const init = () =>
 	btnClearCompletedItems.addEventListener( "click", onClearCompletedItems );
 
 	iconTheme.addEventListener( "click", toggleMode );
+
+	// initDragAndDrop();
 
 	document.querySelector( "#itemCount" ).innerHTML = "0 item";
 	const textInput = document.querySelector( ".text-input" );
@@ -215,8 +248,15 @@ const createElementItem = ( uniqueId, text, completed ) =>
 	// Create a new element - li
 	const item = document.createElement( "li" );
 	item.classList.add( "sortable" );
+	item.classList.add( "item" );
 	item.setAttribute( "data-id", uniqueId );
 	item.setAttribute( "data-completed", completed );
+	item.setAttribute( "draggable", true );
+	item.addEventListener( "dragstart", () =>
+	{
+		setTimeout( () => item.classList.add( "dragging" ), 0 );
+	} );
+	item.addEventListener( "dragend", () => item.classList.remove( ".dragging" ) );
 
 	// Create a new element - input
 	const checkboxEl = document.createElement( "input" );
@@ -263,3 +303,4 @@ const removeElementItem = ( event ) =>
 };
 
 init();
+initDragAndDrop();
