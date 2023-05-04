@@ -155,8 +155,11 @@ body {
 	height: 100%;
 	pointer-events: none;
 	background-image: url(images/icon-check.svg);
-	background-size: contain;
+	background-size: fill;
+	background-attachment: fixed;
+  background-position: center;
 	background-repeat: no-repeat;
+	padding: 2px;
 }
 
 .checkbox:checked::before{
